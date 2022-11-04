@@ -24,3 +24,23 @@ VALUES(mem_num_seq.nextval, '홍길동', 30, '서울');
 SELECT * FROM mem;
 
 commit;
+
+
+
+-----------------------------------------------------------------------------
+-- join
+
+SELECT e.employee_id, e.first_name, e.job_id, e.department_id, d.department_name
+FROM employees e, departments d
+WHERE e.department_id = d.department_id;
+
+
+SELECT d.department_id, d.department_name, e.employee_id, e.first_name, e.job_id
+FROM departments d, employees e
+WHERE d.department_id = e.department_id;
+
+
+SELECT e.employee_id, e.first_name, d.department_name, l.city
+FROM employees e, departments d, locations l
+WHERE e.department_id = d.department_id
+AND d.location_id = l.location_id;
